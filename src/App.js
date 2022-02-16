@@ -1,10 +1,12 @@
-
-
+import React from "react";
+import { ThemeProvider } from 'styled-components'
 function App() {
   return (
-    <div >
-      
-    </div>
+    <ThemeProvider >
+      <div>
+        hello
+      </div>
+    </ThemeProvider>
   );
 }
 
