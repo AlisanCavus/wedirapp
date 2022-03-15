@@ -5,8 +5,8 @@ function App() {
 
   
   return (
-    <div className="dark">
-      
+    <div className=" w-screen h-screen bg-slate-200">
+      hello
     </div>
   );
 }
