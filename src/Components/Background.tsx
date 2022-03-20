@@ -12,19 +12,27 @@ function Background( {search}:Props ) {
     const[ loading, setLoading ] = useState<boolean>(true)
 
     useEffect(() => {
+
+      const fetchData = () => {
+        axios 
+            .get(`${apiRoot}${search}&client_id=${accessKey}`)
+            // .get(`${apiRoot}brussels&client_id=${accessKey}`)
+            .then(res => setImg([ ...img, res.data]))
+      }
         
         const apiRoot = "https://api.unsplash.com/photos/random/?query="
         const accessKey = process.env.REACT_APP_UNSPLASH_API_KEY
 
-        axios 
-            .get(`${apiRoot}${search}&client_id=${accessKey}`)
-            .then(res => setImg([ ...img, res.data]))
-
-      
-        if (img) {
-          setLoading(false)
-        }
         
+        fetchData()
+      
+        
+        return () => {
+          if (img) {
+            setLoading(false)
+          }
+          
+        }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
