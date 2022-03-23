@@ -15,7 +15,7 @@ const App: React.FC = () => {
  }
   return (
       
-      <div className=" min-w-screen min-h-screen bg-slate-700 flex relative">
+      <div className=" min-w-screen min-h-screen bg-slate-700 flex justify-between flex-col">
        {!isLoading && <Form submitSearch={submitSearch} />}
        {error && <Error/>}
        {isLoading && <Loader />}

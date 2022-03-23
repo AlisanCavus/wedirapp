@@ -16,7 +16,7 @@ function Form(props: Props) {
     submitSearch(location);
   };
 
-  const changeHandler = (e: any) => {
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLocation(e.target.value);
    
   };
