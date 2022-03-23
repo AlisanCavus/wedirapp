@@ -37,8 +37,7 @@ function Form(props: Props) {
           className=" rounded-lg bg-orange-300 p-2"
           onClick={onSubmitHandler}
         >
-          {' '}
-          Search{' '}
+          Search
         </button>
       </form>
     </div>
