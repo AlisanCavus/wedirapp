@@ -10,7 +10,7 @@ const useForecast = () => {
     const submitRequest = async (location:string) => {
         setIsLoading(true)
        const {data} = await axios(`${BASE_URL}${location}`)
-       console.log({data})
+       
        
         if (!data || data.lenght === 0) {
             setError(true)
@@ -23,7 +23,7 @@ const useForecast = () => {
 
     console.log(forecast)
     return {
-        error, isLoading, forecast, submitRequest
+        error, isLoading, forecast, submitRequest ,setError
     }
 }
 
