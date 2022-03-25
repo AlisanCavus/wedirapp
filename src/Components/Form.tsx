@@ -36,7 +36,7 @@ function Form(props: Props) {
           onChange={changeHandler}
         />
         <button
-          className="h-full w-20 rounded-xl bg-orange-100 flex justify-center items-center text-center"
+          className="h-full w-20 rounded-xl bg-gray-200 flex justify-center items-center text-center"
           onClick={onSubmitHandler}
         >
           <BsSearch className=" text-center my-auto"/>

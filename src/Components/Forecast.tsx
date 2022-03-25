@@ -91,7 +91,7 @@ function Forecast({ forecast }: prop) {
   }
 
   return (
-    <div className="w-[35vw] h-[70vh] flex flex-col justify-start items-center text-center m-auto bg-orange-100 rounded-xl">
+    <div className="w-[35vw] h-[70vh] flex flex-col justify-start items-center text-center m-auto bg-orange-50 rounded-xl">
       <div className="flex w-full h-1/12 justify-around mx-auto items-center my-4">
         <div className=" min-w-1/2 flex justify-center">
           <h1 className="text-2xl font-extralight flex my-auto">
