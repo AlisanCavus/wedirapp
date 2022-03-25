@@ -6,7 +6,9 @@ import { WiBarometer } from 'react-icons/wi';
 import moment from 'moment';
 
 
+
 const { getName } = require('country-list');
+
 
 interface weather {
   icon: string;
@@ -78,12 +80,21 @@ function Forecast({ forecast }: prop) {
     }
   };
 
+  const timeZone = (timz: number) => {
+    const timeZ = Math.floor(timz / 3600)
+   if (timeZ >= 0) {
+     return `+ ${timeZ}`
+   } else {
+     return `${timeZ}`
+   }
+  }
+
   return (
     <div className="w-[35vw] h-[70vh] flex flex-col justify-start items-center text-center m-auto bg-orange-100 rounded-xl">
       <div className="flex w-full h-1/12 justify-around mx-auto items-center my-4">
         <div className=" min-w-1/2 flex justify-center">
           <h1 className="text-2xl font-extralight flex my-auto">
-            {forecast.name},&nbsp;{' '}
+            {forecast.name},&nbsp;
           </h1>
           <span className="text-2xl not-italic">
             {nameCount(forecast.sys.country)}
@@ -157,7 +168,7 @@ function Forecast({ forecast }: prop) {
             viewBox="0 0 344 103"
             fill="none"
             xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_1_2)">
+            <g clipPath="url(#clip0_1_2)">
               <path
                 d="M343.5 166C343.5 257.387 266.734 331.5 172 331.5C77.2663 331.5 0.5 257.387 0.5 166C0.5 74.6135 77.2663 0.5 172 0.5C266.734 0.5 343.5 74.6135 343.5 166Z"
                 stroke="gray"
@@ -177,6 +188,17 @@ function Forecast({ forecast }: prop) {
               <span>{moment.unix(forecast.sys.sunset).format("H.mm")}</span>
             </div>
           </div>
+
+         
+      </div>
+
+      <div className="w-full h-1/10 my-auto flex justify-center items-center">
+            <span>{moment().format("LLLL")}</span>
+      </div>
+
+      <div className="w-full h-1/10 my-auto flex justify-center items-center">
+            <span>GMT: &nbsp;</span>
+            <span>{timeZone(forecast.timezone)}</span>
       </div>
     </div>
   );
