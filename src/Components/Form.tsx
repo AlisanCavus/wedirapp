@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {BsSearch} from 'react-icons/bs'
 
 
 
@@ -24,7 +25,7 @@ function Form(props: Props) {
 
   return (
     <div className="h-20 w-full flex justify-center items-center">
-      <form onSubmit={onSubmitHandler} action=" w-1/2 h-1/2 flex">
+      <form onSubmit={onSubmitHandler} action=" w-1/2 h-1/2 flex ">
         <input
           type="text"
           aria-label="location"
@@ -35,10 +36,10 @@ function Form(props: Props) {
           onChange={changeHandler}
         />
         <button
-          className=" rounded-lg bg-orange-300 p-2"
+          className=" rounded-lg bg-orange-100 p-2 items-center text-center"
           onClick={onSubmitHandler}
         >
-          Search
+          <BsSearch className=" text-center my-auto"/>
         </button>
       </form>
     </div>

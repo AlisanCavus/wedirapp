@@ -1,5 +1,10 @@
 import React from 'react';
+import { GiWindsock, GiCloudDownload } from 'react-icons/gi'
+import { BsDroplet } from 'react-icons/bs'
+import { FaTemperatureLow, FaTemperatureHigh} from 'react-icons/fa' 
 
+
+const { getName } = require('country-list');
 
 interface weather {
   icon: string;
@@ -61,12 +66,20 @@ function Forecast({ forecast }: prop) {
   const upperCaseFirst = (desc: string ) => {
     return desc.charAt(0).toUpperCase() + desc.slice(1);
   }
+
+
+  
   return (
-    <div className="w-[40vw] h-[70vh] flex flex-col justify-start items-center text-center m-auto bg-orange-100 rounded-2xl">
-      <div className="flex w-full h-1/4 justify-around mx-auto items-center my-10">
+    <div className="w-[35vw] h-[70vh] flex flex-col justify-start items-center text-center m-auto bg-orange-100 rounded-3xl">
+      <div className="flex w-full h-1/12 justify-around mx-auto items-center my-4">
+        <div className=" w-1/2 flex justify-center">
+          <h1 className="text-2xl">{forecast.name},&nbsp; </h1>
+          <span className="text-2xl not-italic">{getName(forecast.sys.country)}</span>
+        </div>
+      </div>
+      <div className="flex w-full h-1/4 justify-around mx-auto items-center ">
         <div className="w-1/2">
-          <span className="text-2xl">{forecast.name},</span>
-          <em className="text-2xl not-italic">{forecast.sys.country}</em>
+          
           <h1 className="text-6xl indent-4 font-extralight ">
             {Math.round(forecast.main.temp)} &deg;
           </h1>
@@ -82,8 +95,36 @@ function Forecast({ forecast }: prop) {
           />
         </div>
       </div>
+      
+      <div className="flex w-full h-1/6 justify-around mx-auto items-center">
+        <div className=" flex w-1/2 justify-center">
+          <FaTemperatureHigh className="h-full my-auto mx-2"/> 
+          <span className=" my-auto">Max &nbsp;</span>
+          <p className="text-center text-2xl">{Math.round(forecast.main.temp_max)} &deg;</p>
+        </div>
+        <div className=" flex w-1/2 justify-center">
+          <FaTemperatureLow className="h-full my-auto mx-2"/> 
+          <span className=" my-auto">Min &nbsp;</span>
+          <p className="text-center text-2xl">{Math.round(forecast.main.temp_min)} &deg; </p>
+        </div>
+      </div>
 
-      <div className="flex w-11/12 h-1/4 justify-around mx-auto items-center"></div>
+      <div className="flex w-full h-1/6 justify-around mx-auto items-center">
+        <div className=" flex w-1/3 justify-center">
+          <GiWindsock className="h-full my-auto mx-2"/> 
+          <p className="text-center">{Math.round(forecast.wind.speed)} km/h </p>
+        </div>
+        <div className=" flex w-1/3 justify-center">
+          <BsDroplet className="h-full my-auto mx-2"/> 
+          <p className="text-center">{Math.round(forecast.main.humidity)} % </p>
+        </div>
+        <div className=" flex w-1/3 justify-center">
+          <GiCloudDownload className="h-full my-auto mx-2"/> 
+          <p className="text-center">{Math.round(forecast.main.pressure)} mBar </p>
+        </div>
+      </div>
+
+   
     </div>
   );
 }
