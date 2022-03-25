@@ -1,3 +1,5 @@
+
+
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
@@ -25,7 +27,10 @@ module.exports = {
       '2xl': {'min': '1201px'},
       // => @media (min-width: 1200px) { ... }
     },
-    extend: {},
-  },
-  plugins: [],
+    extend: {
+      backgroundImage: {
+        'wedir': "url('https://images.pexels.com/photos/1431822/pexels-photo-1431822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')"
+    }
+  }
+}
 }

@@ -3,6 +3,7 @@ import useForecast from './Hooks/useForecast';
 import Error from './Components/Error';
 import Loader from './Components/Loader';
 import Forecast from './Components/Forecast';
+import Main from './Components/Main'
 
 
 const App: React.FC = () => {
@@ -19,11 +20,11 @@ const App: React.FC = () => {
  }
   return (
       
-      <div className=" min-w-screen min-h-screen bg-slate-50 flex justify-center flex-col">
+      <div className=" min-w-screen min-h-screen bg-wedir bg-cover bg-no-repeat flex justify-center flex-col">
        {!isLoading && <Form submitSearch={submitSearch} />}
        {error && <Error errorHandler={errorHandler}/>}
        {isLoading && <Loader />}
-       {forecast && <Forecast forecast={forecast} />}
+       {forecast ? <Forecast forecast={forecast} /> : <Main />}
       </div>
    
   );
