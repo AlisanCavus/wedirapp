@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 
+
 interface Props {
   submitSearch(arg: string): void;
 }
@@ -28,7 +29,7 @@ function Form(props: Props) {
           type="text"
           aria-label="location"
           className="placeholder:p-2 p-2 rounded-lg focus:ring-0 mx-2"
-          placeholder="Search for Loaction"
+          placeholder="Search for a Location"
           required
           value={location}
           onChange={changeHandler}
