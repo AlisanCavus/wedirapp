@@ -67,6 +67,7 @@ interface prop {
 }
 
 function Forecast({ forecast }: prop) {
+
   const upperCaseFirst = (desc: string) => {
     return desc.charAt(0).toUpperCase() + desc.slice(1);
   };
@@ -160,8 +161,10 @@ function Forecast({ forecast }: prop) {
         </div>
       </div>
 
-      <div className="flex w-full h-1/6 flex-col mx-auto items-center">
+      <div className="flex w-full h-1/3 flex-col  items-center">
         
+          
+          <div>
           <svg
             width="200"
             height="50"
@@ -175,15 +178,22 @@ function Forecast({ forecast }: prop) {
               />
             </g>
           </svg>
+          <div className="flex justify-between -mt-5">
+          <img src="http://openweathermap.org/img/wn/01d.png" alt="sunrise" className=" w-10 h-10"/>
+          <img src="http://openweathermap.org/img/wn/01n.png" alt="sunset" className=" w-10 h-10" />
+          </div>
+          
+          </div>
+          
 
           <div className="w-full flex justify-evenly items-center">
-            <div className=" flex flex-col justify-center items-center -mt-5 ml-12">
-              <img src="http://openweathermap.org/img/wn/01d.png" alt="sunrise" className=" w-10 h-10"/>
+            <div className=" flex flex-col justify-center items-center ">
+              
               <h2 className="font-extralight"> Sunrise </h2>
               <span>{moment.unix(forecast.sys.sunrise).format("H.mm")}</span>
             </div>
-            <div className=" flex flex-col justify-center items-center -mt-5 mr-12">
-              <img src="http://openweathermap.org/img/wn/01n.png" alt="sunset" className=" w-10 h-10" />
+            <div className=" flex flex-col justify-center items-center ">
+            
               <h2 className="font-extralight"> Sunset </h2>
               <span>{moment.unix(forecast.sys.sunset).format("H.mm")}</span>
             </div>
@@ -192,11 +202,11 @@ function Forecast({ forecast }: prop) {
          
       </div>
 
-      <div className="w-full h-1/10 my-auto flex justify-center items-center">
+      <div className="w-full h-1/10 my-5 flex justify-center items-center">
             <span>{moment().format("LLLL")}</span>
       </div>
 
-      <div className="w-full h-1/10 my-auto flex justify-center items-center">
+      <div className="w-full h-1/10 my-5 flex justify-center items-center">
             <span>GMT: &nbsp;</span>
             <span>{timeZone(forecast.timezone)}</span>
       </div>
