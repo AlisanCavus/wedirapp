@@ -25,18 +25,18 @@ function Form(props: Props) {
 
   return (
     <div className="h-20 w-full flex justify-center items-center">
-      <form onSubmit={onSubmitHandler} action=" w-1/2 h-1/2 flex ">
+      <form onSubmit={onSubmitHandler} className="w-1/4 h-1/2 flex ">
         <input
           type="text"
           aria-label="location"
-          className="placeholder:p-2 p-2 rounded-lg focus:ring-0 mx-2"
+          className="placeholder:p-2 p-2 rounded-xl focus:ring-0 mx-2 w-full placeholder:text-center"
           placeholder="Search for a Location"
           required
           value={location}
           onChange={changeHandler}
         />
         <button
-          className=" rounded-lg bg-orange-100 p-2 items-center text-center"
+          className="h-full w-20 rounded-xl bg-orange-100 flex justify-center items-center text-center"
           onClick={onSubmitHandler}
         >
           <BsSearch className=" text-center my-auto"/>
