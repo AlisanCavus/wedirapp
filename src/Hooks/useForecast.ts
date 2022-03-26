@@ -21,7 +21,7 @@ const useForecast = () => {
         }
     }
 
-    console.log(forecast)
+   
     return {
         error, isLoading, forecast, submitRequest ,setError
     }

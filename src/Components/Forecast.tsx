@@ -91,7 +91,7 @@ function Forecast({ forecast }: prop) {
   }
 
   return (
-    <div className="w-[35vw] h-[70vh] flex flex-col justify-start items-center text-center m-auto bg-orange-50 rounded-xl">
+    <div className="w-[35vw] h-[70vh] flex flex-col justify-start items-center text-center m-auto bg-orange-50 rounded-xl xs:rounded-none lg:w-1/2 xl:w-1/2 xs:w-full xs:h-full sm:w-11/12 sm:h-full md:w-5/6 ">
       <div className="flex w-full h-1/12 justify-around mx-auto items-center my-4">
         <div className=" min-w-1/2 flex justify-center">
           <h1 className="text-2xl font-extralight flex my-auto">
@@ -120,48 +120,49 @@ function Forecast({ forecast }: prop) {
         </div>
       </div>
 
-      <div className="flex w-full h-1/6 justify-around mx-auto items-center">
-        <div className=" flex w-1/2 ml-10 justify-center">
+      <div className="flex w-full h-1/6 justify-around mx-auto items-center ">
+        <div className=" flex w-1/2 ml-10 justify-center sm:ml-1 ">
           <FaTemperatureHigh className="h-full my-auto mx-2" />
           <span className=" my-auto font-extralight">Max &nbsp;</span>
           <p className="text-center text-2xl">
             {Math.round(forecast.main.temp_max)} &deg;
           </p>
         </div>
-        <div className=" flex w-1/2 mr-10 justify-center">
+        <div className=" flex w-1/2 mr-10 justify-center sm:mr-1 ">
           <FaTemperatureLow className="h-full my-auto mx-2" />
           <span className=" my-auto font-extralight">Min &nbsp;</span>
           <p className="text-center text-2xl">
-            {Math.round(forecast.main.temp_min)} &deg;{' '}
+            {Math.round(forecast.main.temp_min)} &deg;
           </p>
         </div>
       </div>
 
-      <div className="flex w-full h-1/6 justify-around mx-auto items-center">
+      <div className="flex w-full h-1/6 justify-around mx-auto items-center sm:my-4">
         <div className=" flex w-1/3 justify-center">
-          <GiWindsock className="h-full my-auto mx-2" />
+          <GiWindsock className="h-full my-auto mx-2 " />
           <p className="text-center">
-            {Math.round(forecast.wind.speed)}{' '}
-            <em className="not-italic font-extralight"> km/h </em>{' '}
+            {Math.round(forecast.wind.speed)}
+            <em className="not-italic font-extralight"> km/h </em>
+          </p>
+        </div>
+        <div className=" flex w-1/3 justify-center">
+          <WiBarometer className="h-6 w-6 my-auto mx-2 sm:mx-0" />
+          <p className="text-center">
+            {Math.round(forecast.main.pressure)}
+            <em className="not-italic font-extralight"> mB </em>
           </p>
         </div>
         <div className=" flex w-1/3 justify-center">
           <BsDroplet className="h-full my-auto mx-2" />
           <p className="text-center">
-            {Math.round(forecast.main.humidity)}{' '}
-            <em className="not-italic font-extralight"> % </em>{' '}
+            {Math.round(forecast.main.humidity)}
+            <em className="not-italic font-extralight"> % </em>
           </p>
         </div>
-        <div className=" flex w-1/3 justify-center">
-          <WiBarometer className="h-6 w-6  my-auto mx-2" />
-          <p className="text-center">
-            {Math.round(forecast.main.pressure)}{' '}
-            <em className="not-italic font-extralight"> mBar </em>{' '}
-          </p>
-        </div>
+
       </div>
 
-      <div className="flex w-full h-1/3 flex-col  items-center">
+      <div className="flex w-full h-1/3 flex-col lg:h-1/4 items-center">
         
           
           <div>
@@ -186,13 +187,13 @@ function Forecast({ forecast }: prop) {
           </div>
           
 
-          <div className="w-full flex justify-evenly items-center">
-            <div className=" flex flex-col justify-center items-center ">
+          <div className="w-full flex h-1/4 justify-evenly items-center">
+            <div className=" flex flex-col justify-center items-center sm:w-1/3 ">
               
               <h2 className="font-extralight"> Sunrise </h2>
               <span>{moment.unix(forecast.sys.sunrise).format("H.mm")}</span>
             </div>
-            <div className=" flex flex-col justify-center items-center ">
+            <div className=" flex flex-col justify-center items-center sm:w-1/3 ">
             
               <h2 className="font-extralight"> Sunset </h2>
               <span>{moment.unix(forecast.sys.sunset).format("H.mm")}</span>
@@ -206,7 +207,7 @@ function Forecast({ forecast }: prop) {
             <span>{moment().format("LLLL")}</span>
       </div>
 
-      <div className="w-full h-1/10 my-5 flex justify-center items-center">
+      <div className="w-full h-1/10 mb-5 flex justify-center items-center">
             <span>GMT: &nbsp;</span>
             <span>{timeZone(forecast.timezone)}</span>
       </div>
