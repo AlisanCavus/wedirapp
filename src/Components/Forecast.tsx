@@ -1,9 +1,29 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { GiWindsock } from 'react-icons/gi';
 import { BsDroplet } from 'react-icons/bs';
 import { FaTemperatureLow, FaTemperatureHigh } from 'react-icons/fa';
 import { WiBarometer } from 'react-icons/wi';
 import moment from 'moment';
+import a01d from '../Assets/a01d.png'
+import a01n from '../Assets/a01n.png'
+import a02d from '../Assets/a02d.png'
+import a02n from '../Assets/a02n.png'
+import a03d from '../Assets/a03d.png'
+import a03n from '../Assets/a03n.png'
+import a04d from '../Assets/a04d.png'
+import a04n from '../Assets/a04n.png'
+import a09d from '../Assets/a09d.png'
+import a09n from '../Assets/a09n.png'
+import a10d from '../Assets/a10d.png'
+import a10n from '../Assets/a10n.png'
+import a11d from '../Assets/a11d.png'
+import a11n from '../Assets/a11n.png'
+import a13d from '../Assets/a13d.png'
+import a13n from '../Assets/a13n.png'
+import a50d from '../Assets/a50d.png'
+import a50n from '../Assets/a50n.png'
+
 
 
 
@@ -90,6 +110,8 @@ function Forecast({ forecast }: prop) {
    }
   }
 
+  console.log(forecast.weather[0].icon)
+
   return (
     <div className="w-[35vw] h-[70vh] flex flex-col justify-start items-center text-center m-auto bg-orange-50 rounded-xl xs:rounded-none lg:w-1/2 xl:w-1/2 xs:w-full xs:h-full sm:w-11/12 sm:h-full md:w-5/6 ">
       <div className="flex w-full h-1/12 justify-around mx-auto items-center my-4">
@@ -113,7 +135,7 @@ function Forecast({ forecast }: prop) {
         </div>
         <div className="w-1/2 h-full flex flex-col justify-center items-center">
           <img
-            src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`}
+            src={`a${forecast.weather[0].icon}`}
             alt="weather icons"
             className="w-40 h-40 "
           />
