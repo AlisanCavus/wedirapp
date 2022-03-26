@@ -110,7 +110,47 @@ function Forecast({ forecast }: prop) {
    }
   }
 
-  console.log(forecast.weather[0].icon)
+  const getPhoto = (pp:string ) => {
+    switch (pp) {
+      case '01d':
+        return a01d 
+      case '01n':
+        return a01n
+      case '02d':
+        return a02d
+      case '02n':
+        return a02n
+      case '03d':
+        return a03d
+      case '03n':
+        return a03n
+      case '04d':
+        return a04d
+      case '04n':
+        return a04n
+      case '09d':
+        return a09d
+      case '09n':
+        return a09n
+      case '10d':
+        return a10d
+      case '10n':
+        return a10n
+      case '11d':
+        return a11d
+      case '11n': 
+        return a11n
+      case '13d':
+        return a13d
+      case '13n':
+        return a13n
+      case '50d':
+        return a50d
+      case '50n':
+        return a50n
+      
+    }
+  }
 
   return (
     <div className="w-[35vw] h-[70vh] flex flex-col justify-start items-center text-center m-auto bg-orange-50 rounded-xl xs:rounded-none lg:w-1/2 xl:w-1/2 xs:w-full xs:h-full sm:w-11/12 sm:h-full md:w-5/6 ">
@@ -135,9 +175,9 @@ function Forecast({ forecast }: prop) {
         </div>
         <div className="w-1/2 h-full flex flex-col justify-center items-center">
           <img
-            src={`a${forecast.weather[0].icon}`}
+            src={getPhoto(forecast.weather[0].icon)}
             alt="weather icons"
-            className="w-40 h-40 "
+            className="w-32 h-32 "
           />
         </div>
       </div>
