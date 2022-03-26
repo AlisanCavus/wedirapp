@@ -5,12 +5,11 @@ interface Props {
 
 function Error( {errorHandler}: Props) {
   return (
-    <div onClick={() => errorHandler(true)} className="w-screen h-screen bg-slate-400 flex justify-center flex-col items-center z-50 absolute">
-        <div className="w-1/3 h-1/3 rounded-lg bg-amber-300 flex justify-center items-center ">
-            <span className="text-center text-slate-600 font-medium">  Opps... Something went wrong!</span>
-        </div>
-        
+    <div onClick={(e) => errorHandler(!e)} className="w-[35vw] h-[70vh] flex justify-start items-center text-center m-auto bg-orange-50 rounded-xl xs:rounded-none lg:w-1/2 xl:w-1/2 xs:w-full sm:w-11/12  md:w-5/6 ">
+    <div className="flex justify-center items-center text-center mx-auto xs:w-full sm:w-11/12  ">
+        Something went wrong! Click here to close!
     </div>
+</div>
   )
 }
 

@@ -23,6 +23,7 @@ import a13d from '../Assets/a13d.png'
 import a13n from '../Assets/a13n.png'
 import a50d from '../Assets/a50d.png'
 import a50n from '../Assets/a50n.png'
+import Loader from './Loader';
 
 
 
@@ -83,10 +84,12 @@ interface prop {
     timezone: number;
     id: number;
     cod: number;
-  };
+    
+  },
+  isLoading:boolean
 }
 
-function Forecast({ forecast }: prop) {
+function Forecast({ forecast, isLoading }: prop ) {
 
   const upperCaseFirst = (desc: string) => {
     return desc.charAt(0).toUpperCase() + desc.slice(1);
@@ -151,7 +154,7 @@ function Forecast({ forecast }: prop) {
       
     }
   }
-
+if (!isLoading) {
   return (
     <div className="w-[35vw] h-[70vh] flex flex-col justify-start items-center text-center m-auto bg-orange-50 rounded-xl xs:rounded-none lg:w-1/2 xl:w-1/2 xs:w-full xs:h-full sm:w-11/12 sm:h-full md:w-5/6 ">
       <div className="flex w-full h-1/12 justify-around mx-auto items-center my-4">
@@ -178,6 +181,7 @@ function Forecast({ forecast }: prop) {
             src={getPhoto(forecast.weather[0].icon)}
             alt="weather icons"
             className="w-32 h-32 "
+            loading="eager"
           />
         </div>
       </div>
@@ -275,6 +279,9 @@ function Forecast({ forecast }: prop) {
       </div>
     </div>
   );
+} else {
+  return (<Loader/>)
+}
 }
 
 export default Forecast;

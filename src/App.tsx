@@ -1,7 +1,6 @@
 import  Form  from './Components/Form'
 import useForecast from './Hooks/useForecast';
-import Error from './Components/Error';
-import Loader from './Components/Loader';
+
 import Forecast from './Components/Forecast';
 import Main from './Components/Main'
 
@@ -16,23 +15,19 @@ const App: React.FC = () => {
     submitRequest(value)
  }
 
+ const errorHandler = (e:boolean) => {
+  setError(!e)
+}
 
- const errorHandler = () => {
-   setError(false)
- }
 
 
-  
-      
       
         return (
         
         
-        <div className="min-w-screen min-h-screen bg-wedir bg-no-repeat flex justify-center flex-col"> 
+        <div className="min-w-screen min-h-screen bg-wedir bg-no-repeat bg-cover flex justify-center flex-col"> 
         <Form submitSearch={submitSearch}/>
-        {error && <Error errorHandler={errorHandler}/>}
-        {isLoading && <Loader />}
-        {forecast ? <Forecast forecast={forecast} /> : <Main />}
+        {forecast ? <Forecast forecast={forecast} isLoading={isLoading}/> : <Main isLoading={isLoading} error={error} errorHandler={errorHandler}/>}
        </div>
        
        

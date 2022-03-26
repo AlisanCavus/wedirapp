@@ -16,7 +16,10 @@ function Form(props: Props) {
     e.preventDefault();
     if (!location || location === '') return;
     submitSearch(location);
+    setLocation('')
   };
+
+  
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLocation(e.target.value);

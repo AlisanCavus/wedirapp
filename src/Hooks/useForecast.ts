@@ -12,6 +12,7 @@ const useForecast = () => {
     const submitRequest = async (location:string) => {
         setIsLoading(true)
        const {data} = await axios(`${BASE_URL}${location}`)
+        
        
        
         if (!data || data.lenght === 0) {
